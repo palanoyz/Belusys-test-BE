@@ -64,6 +64,9 @@ Enrollment records use the classroom's academic year. Duplicate enrollments
 for an active classroom/student/year are rejected. Request input is validated
 with Zod schemas.
 
+`GET /classroom-lookups` returns active homeroom teacher options for the
+classroom editor.
+
 ## SQL Report
 
 Run Report.sql in the provided MySQL database to list active male students aged 10-12 with their classroom and academic year. Age is calculated from date of birth on the day the report runs. Multiple active classroom assignments appear as separate rows.

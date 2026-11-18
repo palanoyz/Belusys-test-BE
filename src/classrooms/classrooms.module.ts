@@ -7,6 +7,8 @@ import { Student } from '../database/entities/student.entity.js';
 import { Teacher } from '../database/entities/teacher.entity.js';
 import { ClassroomsController } from './classrooms.controller.js';
 import { ClassroomsService } from './classrooms.service.js';
+import { ClassroomLookupsController } from './classroom-lookups.controller.js';
+import { ClassroomLookupsService } from './classroom-lookups.service.js';
 
 @Module({
   imports: [
@@ -18,7 +20,7 @@ import { ClassroomsService } from './classrooms.service.js';
       GradeLevel,
     ]),
   ],
-  controllers: [ClassroomsController],
-  providers: [ClassroomsService],
+  controllers: [ClassroomsController, ClassroomLookupsController],
+  providers: [ClassroomsService, ClassroomLookupsService],
 })
 export class ClassroomsModule {}

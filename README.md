@@ -32,3 +32,15 @@ npm run test:e2e
 
 TypeORM uses `synchronize: false` so existing tables and data are preserved.
 
+## Student API
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/students` | List active students; optionally filter with `studentCode`, `firstName`, `lastName` and `gradeLevelId` |
+| `GET` | `/students/:id` | Get one active student |
+| `POST` | `/students` | Create a student |
+| `PATCH` | `/students/:id` | Update supplied student fields |
+| `DELETE` | `/students/:id` | Soft-delete a student |
+
+The `name` search matches either first or last name. Request bodies, route IDs,
+and search parameters are validated with Zod schemas.

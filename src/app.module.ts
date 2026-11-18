@@ -10,10 +10,12 @@ import { MasterGender } from './database/entities/master-gender.entity.js';
 import { MasterPrefix } from './database/entities/master-prefix.entity.js';
 import { Student } from './database/entities/student.entity.js';
 import { Teacher } from './database/entities/teacher.entity.js';
+import { StudentsModule } from './students/students.module.js';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
+    StudentsModule,
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({

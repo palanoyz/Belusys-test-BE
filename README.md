@@ -42,5 +42,21 @@ TypeORM uses `synchronize: false` so existing tables and data are preserved.
 | `PATCH` | `/students/:id` | Update supplied student fields |
 | `DELETE` | `/students/:id` | Soft-delete a student |
 
-The `name` search matches either first or last name. Request bodies, route IDs,
-and search parameters are validated with Zod schemas.
+Request bodies, route IDs, and search parameters are validated with Zod schemas.
+
+## Classroom API
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/classrooms` | List active classrooms; optionally filter with `roomNo`, `roomName`, and `homeroomTeacher` |
+| `GET` | `/classrooms/:id` | Get one active classroom |
+| `POST` | `/classrooms` | Create a classroom |
+| `PATCH` | `/classrooms/:id` | Update supplied classroom fields |
+| `DELETE` | `/classrooms/:id` | Soft-delete a classroom |
+| `GET` | `/classrooms/:id/students` | List active students enrolled for the classroom's academic year |
+| `POST` | `/classrooms/:id/students` | Enroll a student using `{ "studentId": 1 }` |
+| `DELETE` | `/classrooms/:id/students/:studentId` | Soft-delete a student enrollment |
+
+Enrollment records use the classroom's academic year. Duplicate enrollments
+for an active classroom/student/year are rejected. Request input is validated
+with Zod schemas.

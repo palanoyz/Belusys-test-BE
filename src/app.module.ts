@@ -11,11 +11,13 @@ import { MasterPrefix } from './database/entities/master-prefix.entity.js';
 import { Student } from './database/entities/student.entity.js';
 import { Teacher } from './database/entities/teacher.entity.js';
 import { StudentsModule } from './students/students.module.js';
+import { ClassroomsModule } from './classrooms/classrooms.module.js';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     StudentsModule,
+    ClassroomsModule,
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({

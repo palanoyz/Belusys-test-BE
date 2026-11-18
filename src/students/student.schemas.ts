@@ -30,7 +30,7 @@ export const studentSearchSchema = z.object({
   studentCode: z.string().trim().optional(),
   firstName: z.string().trim().optional(),
   lastName: z.string().trim().optional(),
-  gradeLevelId: z.number().int().positive().optional(),
+  gradeLevelId: z.coerce.number().int().positive().optional(),
 });
 
 export const studentIdSchema = z.coerce.number().int().positive();

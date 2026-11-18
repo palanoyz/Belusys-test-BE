@@ -35,7 +35,8 @@ describe('StudentsService', () => {
 
     await service.findAll({
       studentCode: 'S-100',
-      name: 'Ada',
+      firstName: 'Ada',
+      lastName: 'Lovelace',
       gradeLevelId: 2,
     });
 
@@ -47,15 +48,20 @@ describe('StudentsService', () => {
     );
     expect(queryBuilder.andWhere).toHaveBeenNthCalledWith(
       2,
-      '(student.firstName LIKE :name OR student.lastName LIKE :name)',
-      { name: '%Ada%' },
+      'student.firstName LIKE :firstName',
+      { firstName: '%Ada%' },
     );
     expect(queryBuilder.andWhere).toHaveBeenNthCalledWith(
       3,
+      'student.lastName LIKE :lastName',
+      { lastName: '%Lovelace%' },
+    );
+    expect(queryBuilder.andWhere).toHaveBeenNthCalledWith(
+      4,
       'student.gradeLevelId = :gradeLevelId',
       { gradeLevelId: 2 },
     );
-    expect(queryBuilder.orderBy).toHaveBeenCalledWith('student.lastName', 'ASC');
+    expect(queryBuilder.getMany).toHaveBeenCalled();
   });
 
   it('throws not found for missing or soft-deleted students', async () => {

@@ -44,6 +44,9 @@ TypeORM uses `synchronize: false` so existing tables and data are preserved.
 
 Request bodies, route IDs, and search parameters are validated with Zod schemas.
 
+`GET /student-lookups` returns active prefixes and genders plus grade levels for
+the student editor. This endpoint is read-only.
+
 ## Classroom API
 
 | Method | Path | Purpose |
@@ -64,4 +67,3 @@ with Zod schemas.
 ## SQL Report
 
 Run Report.sql in the provided MySQL database to list active male students aged 10-12 with their classroom and academic year. Age is calculated from date of birth on the day the report runs. Multiple active classroom assignments appear as separate rows.
-

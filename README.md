@@ -18,6 +18,9 @@ npm run start:dev
 
 See `.env.example` for the required database variables.
 
+Set `CORS_ORIGINS` to a comma-separated list of allowed frontend origins.\
+For local development, use `http://localhost:5173`.
+
 ## Commands
 
 ```powershell

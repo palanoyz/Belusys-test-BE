@@ -16,7 +16,7 @@ Copy-Item .env.example .env
 npm run start:dev
 ```
 
-Fill the database variables in `.env`. Never commit `.env`. See `.env.example` for the required key names only.
+See `.env.example` for the required database variables.
 
 ## Commands
 
